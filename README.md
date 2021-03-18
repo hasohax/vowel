@@ -37,3 +37,4 @@ Last time I fired up the GUI ( with Sway on Wayland) was to do my taxes though I
 
 # DevOS
 Github is full of nixos configurations. One of the project that I learned a lot is `divnix/devos`. It is a full blown `flake` and `home-manager` to automate the entire dot file management for all your devices and possibly thousands of them if you are rolling out nixOS in an enterprise. Besides that `flake` is still experimental, it felt like an overkill to me but I might get to it as I learn little bit of `nix language`. Project itself is early stages. Do pay a visit. 
+..
