@@ -1,4 +1,6 @@
- Vowel stands for a "Very Opinionated Writing Environment for Less".  It is a primarily command line based applications that a writer needs to have a fun filled writing environment. Even on a very old machine. Some of the things that I have been doing on my Dell Inspiron 6000  with this environment are - 
+Vowel stands for a "Very Opinionated Writing Environment for Less".  It is  primarily a command line based environment that a writer needs to have a fun filled writing experience -  Even on an old machine. There is optional `GUI` with `Wayland Sway`. I find it much better than `X org` based graphical interface that most Linux distros offer. The graphical interface is lot slower compared to newer machines and of course v/s command line interface. In addition, I find command line (cli) way less distracting than graphical interface.
+
+ Some of the things that I have been doing on my Dell Inspiron 6000  with this environment are - 
 
  - Fontconfig support with frame buffer terminal (fbterm)
  - Fuzzy search in bash and vim (fzf)
