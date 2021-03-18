@@ -1,4 +1,4 @@
-Vowel stands for a "Very Opinionated Writing Environment for Less".  It is  primarily a command line based environment that a writer needs to have a fun filled writing experience -  Even on an old machine. There is optional `GUI` with `Wayland Sway`. I find it much better than `X org` based graphical interface that most Linux distros offer. The graphical interface is lot slower compared to newer machines and of course v/s command line interface. In addition, I find command line (cli) way less distracting than graphical interface.
+Vowel stands for a "Very Opinionated Writing Environment for Less".  It is  primarily a command line based environment that a writer needs to have a fun filled writing experience -  Even on an old machine. There is optional `GUI` with `Wayland Sway`. I find it much better than `X org` based graphical interface that most Linux distros offer. The graphical interface is lot slower compared to newer machines and of course v/s command line interface.
 
  Some of the things that I have been doing on my Dell Inspiron 6000  with this environment are - 
 
@@ -19,7 +19,8 @@ Vowel stands for a "Very Opinionated Writing Environment for Less".  It is  prim
  - Check out pics in pretty good resolution - as good as GUI based systems. (fim)
  - Watch videos of I need to.(mplayer)
  - Catch up with daily news. (newsboat)
- - There is a signal command line interface for the chat lovers but I had hard time building it on 32 bits machine. I am anyway not much into continuous chatter. 
+ - There is a signal command line interface for the chat lovers but I had hard time building it on 32 bits machine. I am anyway not much into continuous chatter.
+ - And ton of other utilities and fun stuff. 
 
 Last time I fired up the GUI ( with Sway on Wayland) was to do my taxes though I am sure there is a command line app for that :-) but I didn't wanna spend time on a thing that I hate. Plus it is just once an year pain. BTW - if you have a smart phone , you will probably love this. You will feel that laptop is lot different than your iPhone. One of the reason I don't open the lid of my Mac Air -  it feels more and more like iOS. 
 
