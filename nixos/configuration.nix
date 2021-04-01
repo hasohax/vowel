@@ -1,27 +1,36 @@
 # Vowel - Very Opinionated Writing Environment for Less. A targeted command line based writing environment based on NixOS. 
-# NixOS manual (accessible by running ‘nixos-help’). Check `man configuration.nix` for more details on config file. 
 
 { config, pkgs,  ... }:
 
 { imports =
-    [ # Include the results of the hardware scan.
+    [ # Include the results of the hardware scan. Unique to every hardware piece. Don't delete.
       ./hardware-configuration.nix
-      # tmux and tmux status bar configuration.  
+      # tmux and tmux status bar configuration.  Includes plugins.
       ./tmux/default.nix
      ];
 
 # System boot.
 
   boot.loader.grub.enable = true; 
-  boot.loader.grub.version = 2;		 # Use the GRUB 2 boot loader.Good for old system. Newer ones use efi. Refer to nixos-help
-  boot.loader.grub.device = "/dev/sda"; 				 # hard drive you want to install Grub.
+  boot.loader.grub.version = 2;		         # Good for old system. Newer ones use efi. 
+  boot.loader.grub.device = "/dev/sda"; 	 # hard drive you want to install Grub.
 
  # Select internationalisation properties.
    i18n.defaultLocale = "en_US.UTF-8";
+
    console = {
-     font = "Lat2-Terminus22";
+    #font = "Lat2-Terminus16";                # Leave empty to allow setfont choose for you. 
      keyMap = "us";
    };
+
+   fonts = {
+     fonts = with pkgs; [ powerline-fonts dejavu_fonts ];
+     fontconfig.defaultFonts = {
+       monospace = [ "DejaVu Sans Mono for Powerline" ];
+       sansSerif = [ "DejaVu Sans" ];
+     };
+   };
+ 
 
    
 # Environment variables 
@@ -105,7 +114,7 @@
                                       xdg_utils    # Open applicaions with "xdg_open" in wayland too.
                                      ];
     waybar.enable= true;
-    tmux.enable=true;
+#    tmux.enable=true;
     thefuck.enable = true;
   };
 
@@ -129,10 +138,6 @@
   boot.kernelModules = [ "fuse" ];  # Need to figure this out.
 
 
-# Install any additional fonts that I require to be used with xmonad
-  fonts.fonts = with pkgs; [
-    opensans-ttf             # Used in in my xmobar configuration
-  ];
 
 # Instal apps - Primarily command line; few for graphical.
 
@@ -141,82 +146,97 @@
   environment.systemPackages = with pkgs; [
  # CLI Apps or rather apps without the need of X or Wayland. 
     # System Tools / Utilities
-    git
-    lazygit
-    neofetch
-    fbterm
-    man
-    htop
-    kbd
-    wget
-    xsel
-    tree
-    unzip
-    ripgrep
-    tldr
-    vifm
-    megacmd #is free as in free "beer". Other wise not free.
-    scrot
-    cozette
-    pywal
-    cava
-    catimg
-    bashburn
-    nmap
-    usbutils
-    pciutils
-    fzf
+      binutils
+      coreutils
+      usbutils
+      iputils
+      pciutils
+      dnsutils
+      curl
+      direnv
+      dosfstools
+      fd
+      gotop
+      jq
+      nix-index
+      tealdeer
+      utillinux
+      whois
+      git
+      lazygit
+      neofetch
+      fbterm
+      man
+      htop
+      kbd
+      xsel
+      tree
+      unzip
+      ripgrep
+      tldr
+      vifm
+      megacmd #is free as in free "beer". Other wise not free.
+      scrot
+      pywal
+      cozette
+      cava
+      catimg
+      bashburn
+      nmap
+      fzf
     # Write and Research
-    w3m
-    (import ./vim.nix)
-    mdbook
-    ddgr
-    googler
-    netsurf.browser
-    newsboat
-    dict
-    sc-im
-    topydo #didnt build on i386
-    tmate
-    # pandoc #didnt build on 32 bit linux
+      w3m
+      (import ./vim.nix)
+      mdbook
+      ddgr
+      googler
+      netsurf.browser
+      newsboat
+      dict
+      sc-im
+      topydo  #didnt build on 32 bits i686 Linux
+      tmate
+      pandoc #didnt build on 32 bits i686 Linux
     # Communicate
-    aerc
-     dante
-     scdoc
-    signal-cli
-     qrencode 
+      aerc
+       dante
+       scdoc
+      signal-cli
+       qrencode 
     # Media
-    cmus
-    beets
-    sox
-    lame
-    youtube-viewer
-    youtube-dl
-    mplayer
-    mpv-unwrapped #didn't build on i386
-    vlc
-    feh
-    fim
-    imagemagick
+      cmus
+      beets
+      sox
+      lame
+      youtube-viewer
+      youtube-dl
+      mplayer
+      mpv-unwrapped  #didn't build on 32 bit i686 Linux
+      vlc
+      feh
+      fim
+      imagemagick
     # Publishing Platforms
-    github-cli
-    rtv
-      urlscan   # Didnt build on i386
-      urlview
-      urlwatch
-    rainbowstream
-    # Fun Stuff
-    fortune
-    figlet
-    lolcat
+      github-cli
+      rtv
+        urlscan   # Didn't build on 32 bits i686 Linux
+        urlview
+        urlwatch
+      rainbowstream
+      # Fun Stuff
+      fortune
+      figlet
+      lolcat
+    #Infra
+      google-cloud-sdk   # Not supported on 32 bits i686
  # GUI Apps or the apps that need Wayland (or X)
-    firefox-bin
-    qutebrowser 
-    audacity
-    zeal
-    zathura
-    signal-desktop # package is only for 64 bits
-    tdesktop
+      firefox-bin
+      qutebrowser 
+      audacity
+      zeal
+      zathura
+      signal-desktop   # package is only for 64 bits Linux
+      tdesktop
   ];
   
   
