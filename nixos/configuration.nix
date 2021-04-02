@@ -228,7 +228,7 @@
       figlet
       lolcat
     #Infra
-      google-cloud-sdk   # Not supported on 32 bits i686
+       google-cloud-sdk   # Not supported on 32 bits i686
  # GUI Apps or the apps that need Wayland (or X)
       firefox-bin
       qutebrowser 
@@ -238,7 +238,37 @@
       signal-desktop   # package is only for 64 bits Linux
       tdesktop
   ];
-  
+
+    environment.shellAliases =
+      {
+        # quick cd
+        ".." = "cd ..";
+        "..." = "cd ../..";
+        "...." = "cd ../../..";
+        "....." = "cd ../../../..";
+
+        # git
+        g = "git";
+
+        # grep
+        grep = "rg";
+        gi = "grep -i";
+
+        # internet ip
+        myip = "dig +short myip.opendns.com @208.67.222.222 2>&1";
+
+        # top
+        top = "gotop";
+
+        # systemd
+        ctl = "systemctl";
+        utl = "systemctl --user";
+        ut = "systemctl --user start";
+        un = "systemctl --user stop";
+        jtl = "journalctl";
+
+      };
+ 
   
   nixpkgs.config.permittedInsecurePackages = [
           "libsixel-1.8.6"
