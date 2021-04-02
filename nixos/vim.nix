@@ -113,7 +113,7 @@ syntax enable
 set t_Co=256
 
 try
-    colorscheme desert
+    colorscheme solarized8_dark
 catch
 endtry
 
@@ -296,6 +296,7 @@ map <leader>pp :setlocal paste!<cr>
             "vim-markdown"
             "vim-monokai-pro"
             "vim-nix"
+            "vim-colorschemes"
             "nerdtree"
         ]; }
     ];
