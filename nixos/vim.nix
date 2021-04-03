@@ -113,7 +113,7 @@ syntax enable
 set t_Co=256
 
 try
-    colorscheme solarized8_dark
+    colorscheme wombat
 catch
 endtry
 

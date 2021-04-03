@@ -13,11 +13,11 @@ let
     );
 
   plugins = with pkgs.tmuxPlugins; [
-    copycat
+    # copycat
     open
-    resurrect
-    yank
-    vim-tmux-navigator
+    # resurrect
+    # yank
+    # vim-tmux-navigator
   ];
 in
 {

@@ -52,7 +52,7 @@
 # Network - Let networkmanager handle this shit.
   
   networking = {
-    hostName = "desko";
+    hostName = "dello";
     networkmanager.enable = true;
    
     # Open ports in the firewall.
