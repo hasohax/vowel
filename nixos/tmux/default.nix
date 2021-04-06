@@ -13,11 +13,11 @@ let
     );
 
   plugins = with pkgs.tmuxPlugins; [
-    # copycat
-    open
-    # resurrect
-    # yank
-    # vim-tmux-navigator
+    #copycat
+    #open
+    resurrect
+    #yank
+    #vim-tmux-navigator
   ];
 in
 {
@@ -29,8 +29,8 @@ in
     escapeTime = 10;
     historyLimit = 5000;
     keyMode = "vi";
-    shortcut = "a";
-    terminal = "tmux-256color";
+    # shortcut = "a";
+    # terminal = "tmux-256color";
     baseIndex = 1;
     extraConfig = ''
       ${readFile ./tmuxline.conf}

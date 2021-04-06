@@ -38,18 +38,18 @@
   environment.variables = {
     NIXOS_CONFIG = "/etc/nixos/configuration.nix";
     NIXPKGS_ALLOW_UNFREE = "1";
-    EDITOR = "vim";
-    VISUAL = "vim";
+    EDITOR = "im";
+    VISUAL = "im";
     BROWSER = "w3m";
     RTV_BROWSER = "w3m";
-    RTV_EDITOR = "vim";
-    RTV_URLVIEWER = "urlview";
+    RTV_EDITOR = "im";
+    RTV_URLVIEWER = "urlscan";
   };
-# Time
 
+# Time
   time.timeZone = "America/Los_Angeles";
 
-# Network - Let networkmanager handle this shit.
+# Network - Let networkmanager handle this.
   
   networking = {
     hostName = "dello";
@@ -64,15 +64,13 @@
 
 # System Services
  
-   services.openssh.enable = true;		 # ssh
-   services.printing.enable = true;		 # Print - Do I need it ?
+   services.openssh.enable = true;		
+   services.printing.enable = true;		 
+   sound.enable = true;
+   sound.mediaKeys.enable = true;
+   hardware.pulseaudio.enable = true;
 
-# Enable sound.
-  sound.enable = true;
-  sound.mediaKeys.enable = true;
-  hardware.pulseaudio.enable = true;
-
-# Extra Outputs for all the packages. For example corutils offer info. 
+# Extra Outputs for all the packages.  
 
   environment.extraOutputsToInstall = [ "man" "doc" "info" "devdoc" ];
 
@@ -83,10 +81,8 @@
   '';
 
 
-# Configurable modules. If enabled here, They dont need to be installed via pkgs. 
 # NixOS automatically creates a config file in /etc for these programs. 
-# Not sure as of now if this is the way to configure packages cuz I beleive in collabaratively built config by people who know these packages well enough and update the config regularly. 
-# vim , tmux xmonad etc for example have nice config repos on github. Others can go here ?
+
   programs = {
     bash.enableCompletion = true;
     bash.shellInit = 
@@ -99,7 +95,7 @@
            fi  
           '';
     less.enable = true;
-    sway.enable = true; #Implements sway wm with sandard config and Wayland - a replacement for X.  
+    sway.enable = true;                            #Implements sway wm with sandard config and Wayland - a replacement for X.  
     sway.extraPackages = with pkgs; [
                                       xwayland     # To Support X applications
                                       dmenu        # Program search in Swaybar
@@ -113,9 +109,6 @@
                                       grim         # Wayland compatible screenshots
                                       xdg_utils    # Open applicaions with "xdg_open" in wayland too.
                                      ];
-    waybar.enable= true;
-#    tmux.enable=true;
-    thefuck.enable = true;
   };
 
 
@@ -127,7 +120,7 @@
 
   users.users.amj = {
     isNormalUser = true;
-    extraGroups = [ "root" "wheel" "networkmanager" "video" "sudo" ];
+    extraGroups = [ "wheel" "networkmanager" "video" "sudo" ];
     shell = pkgs.bash;
   };
 
@@ -135,7 +128,7 @@
 
   services.udisks2.enable = true;   # Enable udisks2.
   services.devmon.enable = true;    # Enable external device automounting.
-  boot.kernelModules = [ "fuse" ];  # Need to figure this out.
+  boot.kernelModules = [ "fuse" ];  # ?
 
 
 
@@ -157,10 +150,7 @@
       dosfstools
       fd
       gotop
-      jq
-      # manix   #undefined for i686
       nix-index
-      tealdeer
       utillinux
       whois
       git
@@ -176,10 +166,7 @@
       ripgrep
       tldr
       vifm
-      megacmd #is free as in free "beer". Other wise not free.
       scrot
-      pywal
-      cozette
       cava
       catimg
       bashburn
@@ -195,13 +182,14 @@
       newsboat
       dict
       sc-im
-      # topydo  #didnt build on 32 bits i686 Linux
+      #topydo  #didnt build on 32 bits i686 Linux
       tmate
-      # pandoc #didnt build on 32 bits i686 Linux
+      #pandoc #didnt build on 32 bits i686 Linux
     # Communicate
       aerc
        dante
        scdoc
+       khard
       signal-cli
        qrencode 
     # Media
@@ -212,24 +200,24 @@
       youtube-viewer
       youtube-dl
       mplayer
-      # mpv-unwrapped  #didn't build on 32 bit i686 Linux
+      #mpv-unwrapped  #didn't build on 32 bit i686 Linux
       vlc
       feh
       fim
       imagemagick
-    # Publishing Platforms
+    # Publishing and online storage
       github-cli
+      megacmd       #is free as in free "beer". Other wise not free.
       rtv
-        # urlscan   # Didn't build on 32 bits i686 Linux
+        #urlscan     #Didn't build on 32 bits i686 Linux
         urlview
         urlwatch
-      rainbowstream
       # Fun Stuff
       fortune
       figlet
       lolcat
     #Infra
-      # google-cloud-sdk   # Not supported on 32 bits i686
+       #google-cloud-sdk   # Not supported on 32 bits i686
  # GUI Apps or the apps that need Wayland (or X)
       firefox-bin
       qutebrowser 

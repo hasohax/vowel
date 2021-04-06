@@ -26,7 +26,7 @@ vim_configurable.customize {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" we are no more compatible with vi but its told to open lot more new features.
+" we are no more compatible with vi but it opens up  lot more new features.
 set nocompatible
 
 " Sets how many lines of history VIM has to remember
