@@ -1,0 +1,18 @@
+# Summary
+
+- [About](./about.md)
+- [Write to Publish](./writing.md)
+    - [Book](./book.md)
+    - [blog](./blog.md)
+    - [Medium](./medium.md)
+    - [Reddit](./reddit.md)
+- [Technology](./tech.md)
+    - [Operating System](./os.md)
+    - [Core Application](./core.md)
+    - [Other Apps](.other.md)
+- [Monetization](./monetization)
+    - [Tracking the clicks](./clicks.md)
+    - [Promotion](./promotion.md))
+    - [Tokens](./tokens.md)
+    - [ePubs](./epubs.md)
+    - [Why open source](./creativeCommons.md)
