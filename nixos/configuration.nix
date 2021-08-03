@@ -178,29 +178,24 @@
       mdbook
       ddgr
       googler
-      netsurf.browser
-      newsboat
       dict
       sc-im
-      #topydo  #didnt build on 32 bits i686 Linux
       tmate
-      #pandoc #didnt build on 32 bits i686 Linux
     # Communicate
       aerc
        dante
        scdoc
        khard
-      signal-cli
-       qrencode 
     # Media
       cmus
       beets
       sox
       lame
-      youtube-viewer
-      youtube-dl
+      flac
+      faad2
+      ogg-tools
+      ecasound
       mplayer
-      #mpv-unwrapped  #didn't build on 32 bit i686 Linux
       vlc
       feh
       fim
@@ -209,24 +204,13 @@
       github-cli
       megacmd       #is free as in free "beer". Other wise not free.
       rtv
-        #urlscan     #Didn't build on 32 bits i686 Linux
         urlview
         urlwatch
-      # Fun Stuff
+    # Fun Stuff
       fortune
       figlet
       lolcat
-    #Infra
-       #google-cloud-sdk   # Not supported on 32 bits i686
- # GUI Apps or the apps that need Wayland (or X)
-      firefox-bin
-      qutebrowser 
-      audacity
-      zeal
-      zathura
-      #signal-desktop   # package is only for 64 bits Linux
-      tdesktop
-  ];
+   ];
 
     environment.shellAliases =
       {
