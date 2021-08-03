@@ -95,20 +95,6 @@
            fi  
           '';
     less.enable = true;
-    sway.enable = true;                            #Implements sway wm with sandard config and Wayland - a replacement for X.  
-    sway.extraPackages = with pkgs; [
-                                      xwayland     # To Support X applications
-                                      dmenu        # Program search in Swaybar
-                                      wl-clipboard # Wayland clipboard
-                                      swaylock     # Screen lock in Wayland world
-                                      swayidle     # Lock sceen afer say 30 minutes of inacivity
-                                      termite      # Nice terminal. I bind it to Mod+enter in sawy config
-                                      light        # To control the brighness - works in tty as well as Wayland
-                                      mako         # Wayland Notifications
-                                      waybar       # Make sway look like a Desktop with configurable top bar
-                                      grim         # Wayland compatible screenshots
-                                      xdg_utils    # Open applicaions with "xdg_open" in wayland too.
-                                     ];
   };
 
 
@@ -185,6 +171,7 @@
       topydo  #didnt build on 32 bits i686 Linux
       tmate
       pandoc #didnt build on 32 bits i686 Linux
+      languagetool
     # Communicate
       aerc
        dante
@@ -205,6 +192,19 @@
       feh
       fim
       imagemagick
+      faac
+      faad2
+      fftw
+      flac
+      libsamplerate
+      libsndfile
+      lv2
+      mikmod
+      mpg123
+      swh_lv2
+      timidity
+      vorbis-tools
+      ecasound
     # Publishing and online storage
       github-cli
       megacmd       #is free as in free "beer". Other wise not free.
@@ -221,9 +221,18 @@
  # GUI Apps or the apps that need Wayland (or X)
       firefox-bin
       qutebrowser 
-      audacity
       zeal
+      zotero 
+      # Creativity 
+      audacity-gtk3
+      snd
+      reaper
+      #ocenaudio
+      drawio
+      gimp
       zathura
+      # Social
+      cawbird
       signal-desktop   # package is only for 64 bits Linux
       tdesktop
   ];
@@ -257,12 +266,35 @@
         jtl = "journalctl";
 
       };
- 
+      
+# X with only Xmonad  - No Plasma, xfce or oher desktop , Uncomment these if you don' intend to use Sway (Wih Wayland.
+# In my experience, sway with wayland is around the same speed but feels much better.Highly recommend with proper config.
+
+services.xserver = {
+  enable = true;
+  layout = "us";
+  autorun = false;
+  desktopManager.xfce.enable = true;
+  desktopManager.xterm.enable = false;
+  xkbOptions = "ctrl:nocaps";
+  displayManager.defaultSession = "xfce";
+  };
+
+  services.xserver.videoDrivers = [ "intel" ];		# To support my old dell display.  took me 3 days of back breaking to figure out though it was there in the manual. Its hard to accept that you are old :-).
+  services.xserver.deviceSection = ''
+     Option "DRI" "2"
+     Option "TearFree" "true"
+     '';
+
+
   
   nixpkgs.config.permittedInsecurePackages = [
           "libsixel-1.8.6"
+          "ffmpeg-2.8.17"
            ];
-  
+
+  system.autoUpgrade.enable = true;
+  system.autoUpgrade.allowReboot = true;
 
   nix = {
     autoOptimiseStore = true;
