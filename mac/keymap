@@ -1,0 +1,5 @@
+keymap  sd    COMMAND "TAB_GOTO https://duckduckgo.com/lite/; NEXT_LINK; GOTO_LINK"
+keymap  sg    COMMAND "TAB_GOTO https://google.com; GOTO_LINE 6; NEXT_LINK; GOTO_LINK"
+keymap  se    COMMAND "TAB_GOTO https://stackexchange.com; GOTO_LINE 7; NEXT_LINK; GOTO_LINK"
+keymap  sw    COMMAND "TAB_GOTO https://en.m.wikipedia.org/wiki/Main_Page; GOTO_LINE 18; NEXT_LINK; GOTO_LINK"
+
